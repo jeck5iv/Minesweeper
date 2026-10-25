@@ -1,19 +1,23 @@
-# Сапер
+# Minesweeper in Java
 
-### Инструкция:
+A desktop implementation of Minesweeper, with a grid-based game model, flagging, neighbouring-cell expansion and a graphical interface.
 
-Для игры необходим Java версии Java 17 или выше. \
-Если при запуске проект падает с ошибкой "Cannot invoke "java.net.URL.toExternalForm()" because "location" is null", то необходимо пометить директорию res как "Resources root".
+## Play
 
-### Правила:
+Open the project with **Java 17 or newer**, mark `res/` as the resource root and run the `Minesweeper` class. The image resources must be available on the runtime classpath.
 
-На игровом поле расположены 10 мин. Нужно открыть все клетки, кроме клеток, в которых находятся мины. При открытии мины игра заканчивается.
-В каждой клетке, где нет мины, написано число мин среди 8ми её соседних клеток. Если в клетке не написано число, значит среди ее соседей нет мин.
+- Left-click to reveal a cell.
+- Right-click to place or remove a flag.
+- Click an opened numbered cell to reveal its remaining neighbours when the adjacent flag count matches the number.
 
-### Как играть:
+The board contains ten mines. Reveal every safe cell to win; revealing a mine ends the game.
 
-1) Открыть закрытую клетку можно кликнув по ней левой кнопкой мыши.
-2) Поставить на закрытую клетку флаг или убрать его, если он сейчас стоит, можно кликнув по ней правой кнопкой мыши. Используйте эту возможность, чтобы поменить потенциальные позиции мин.
-3) Также нажав на уже открытую клетку, вокруг которой стоит число флагов, равное числу записанному в клетке, можно открыть всех ее соседей. 
+## Code map
 
-Удачной игры.
+| Source | Responsibility |
+| --- | --- |
+| [Minesweeper.java](src/Minesweeper.java) | Desktop interface and input handling |
+| [Game model](src/sweeper/) | Board state, mines, flags, coordinates and game transitions |
+| [Resources](res/img/) | Cell and interface images |
+
+Compiled artifacts are retained from the original coursework. The source is the preferred entry point for inspecting the implementation.
